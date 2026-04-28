@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyvrb}
+
+\geometry{a4paper, margin=1.5cm}
+
+\definecolor{pozadi_cerna}{HTML}{000000}
+% Změněno na měkčí, příjemnější zelenou barvu
+\definecolor{text_zelena}{HTML}{00CC00}
+\definecolor{sekce_zelena}{HTML}{004400}
+
+\pagecolor{pozadi_cerna}
+\color{text_zelena}
+
+\titleformat{\section}
+{\color{text_zelena}\normalfont\Large\bfseries\ttfamily}
+{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\begin{document}
+\large
+
+\begin{center}
+\begin{Verbatim}[formatcom=\color{text_zelena}, fontsize=\Large]
+###########################################################
+#                                                         #
+#         PROTOKOL: CESKA_SIFROVACI_APLIKACE_v1.0         #
+#         STATUS: OPERATIVNI                              #
+#                                                         #
+###########################################################
+\end{Verbatim}
+\end{center}
+
+\vspace{1cm}
+
+\section{POPIS SYSTÉMU}
+Tato aplikace slouží k šifrování a dešifrování textových dat v českém jazyce. Systém využívá 12 různých algoritmů a plně podporuje českou diakritiku (ěščřžýáíéóňďť).
+
+\section{DOSTUPNÉ MODULY}
+\begin{itemize}
+    \item \texttt{Šifrátor} - Modul pro transformaci čistého textu do šifrované formy.
+    \item \texttt{Dešifrátor} - Modul pro dekódování přijatých zpráv.
+\end{itemize}
+
+\section{IMPLEMENTOVANÉ ALGORITMY}
+\begin{itemize}
+    \item \textbf{Písmena pozpátku} - Reverze pořadí znaků.
+    \item \textbf{Caesarova šifra} - Posun v české abecedě (41 znaků).
+    \item \textbf{Gronsfeld} - Pokročilá polyalfabetická šifra s číselným klíčem.
+    \item \textbf{Binární a HEX kód} - Převod na úrovni bajtů UTF-8.
+    \item \textbf{Base64} - Standardní kódování pro přenos dat.
+    \item \textbf{Leet Speak} - Hakerská substituce znaků čísly.
+    \item \textbf{Morseova šifra} - Klasická rádiová komunikace (zjednodušená).
+\end{itemize}
+
+\section{INSTALACE A SPUŠTĚNÍ}
+Pro stažení a běh aplikace je nutné mít nainstalovaný Git a interpret Python 3.
+\begin{Verbatim}[frame=single, rulecolor=\color{text_zelena}, fontsize=\large]
+$ git clone https://github.com/susjantux/czech_cipher_app.git
+$ cd czech_cipher_app
+$ python czech_cipher_app.py
+\end{Verbatim}
+
+\section{POŽADAVKY NA SYSTÉM}
+\begin{itemize}
+    \item Operační systém: Multiplatformní (Windows, macOS, Linux).
+    \item Běhové prostředí: Python 3.x (Tkinter je standardní součástí).
+    \item Doporučený editor: Visual Studio Code nebo klasický Terminál.
+    \item Font: Monospace (Consolas / DejaVu Sans Mono).
+\end{itemize}
+
+\vspace{2cm}
+\begin{center}
+    \texttt{\Large --- KONEC PROTOKOLU ---}
+\end{center}
+
+\end{document}

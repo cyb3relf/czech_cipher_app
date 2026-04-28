@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyvrb}
+
+\geometry{a4paper, margin=1.5cm}
+
+\definecolor{pozadi_cerna}{HTML}{000000}
+% Changed to a softer, more eye-friendly green
+\definecolor{text_zelena}{HTML}{00CC00}
+
+\pagecolor{pozadi_cerna}
+\color{text_zelena}
+
+\titleformat{\section}
+{\color{text_zelena}\normalfont\Large\bfseries\ttfamily}
+{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\begin{document}
+\large
+
+\begin{center}
+\begin{Verbatim}[formatcom=\color{text_zelena}, fontsize=\Large]
+###########################################################
+#                                                         #
+#         PROTOCOL: CZECH_CIPHER_APP_v1.0                 #
+#         STATUS: OPERATIONAL                             #
+#                                                         #
+###########################################################
+\end{Verbatim}
+\end{center}
+
+\vspace{1cm}
+
+\section{SYSTEM DESCRIPTION}
+This application is used for encrypting and decrypting text data in the Czech language. The system utilizes 12 different algorithms and fully supports Czech diacritics (ěščřžýáíéóňďť).
+
+\section{AVAILABLE MODULES}
+\begin{itemize}
+    \item \texttt{Encryptor} - Module for transforming plain text into encrypted form.
+    \item \texttt{Decryptor} - Module for decoding received messages.
+\end{itemize}
+
+\section{IMPLEMENTED ALGORITHMS}
+\begin{itemize}
+    \item \textbf{Letters backwards} - Reversal of character order.
+    \item \textbf{Caesar cipher} - Shift in the Czech alphabet (41 characters).
+    \item \textbf{Gronsfeld} - Advanced polyalphabetic cipher with a numeric key.
+    \item \textbf{Binary and HEX code} - Conversion at the UTF-8 byte level.
+    \item \textbf{Base64} - Standard encoding for data transmission.
+    \item \textbf{Leet Speak} - Hacker substitution of characters with numbers.
+    \item \textbf{Morse code} - Classic radio communication (simplified).
+\end{itemize}
+
+\section{INSTALLATION AND EXECUTION}
+To download and run the application, Git and a Python 3 interpreter must be installed.
+\begin{Verbatim}[frame=single, rulecolor=\color{text_zelena}, fontsize=\large]
+$ git clone https://github.com/susjantux/czech_cipher_app.git
+$ cd czech_cipher_app
+$ python czech_cipher_app.py
+\end{Verbatim}
+
+\section{SYSTEM REQUIREMENTS}
+\begin{itemize}
+    \item Operating system: Multiplatform (Windows, macOS, Linux).
+    \item Runtime environment: Python 3.x (Tkinter is included by default).
+    \item Recommended editor: Visual Studio Code or classic Terminal.
+    \item Font: Monospace (Consolas / DejaVu Sans Mono).
+\end{itemize}
+
+\vspace{2cm}
+\begin{center}
+    \texttt{\Large --- END OF PROTOCOL ---}
+\end{center}
+
+\end{document}
