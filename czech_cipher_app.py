@@ -1,6 +1,7 @@
 import tkinter as tk
 import base64
 import unicodedata
+import re
 
 okno = tk.Tk()
 okno.title("Šifrovací a dešifrovací aplikace (Česká edice)")
@@ -158,7 +159,8 @@ def zpracuj_akci():
             vystupni_pole.insert(tk.END, vstupni_text.encode('utf-8').hex(' '))
         else:
             try: 
-                vystupni_pole.insert(tk.END, bytes.fromhex(vstupni_text.replace(" ", "")).decode('utf-8'))
+                cista_data = vstupni_text.replace(" ", "").replace("\n", "")
+                vystupni_pole.insert(tk.END, bytes.fromhex(cista_data).decode('utf-8'))
             except Exception: 
                 vystupni_pole.insert(tk.END, "[CHYBA] Neplatný HEX kód!")
 
@@ -197,7 +199,8 @@ def zpracuj_akci():
         try: 
             posun = int(hodnota_klice)
         except ValueError: 
-            posun = 1
+            vystupni_pole.insert(tk.END, "[CHYBA] Klíč musí být číslo!")
+            return
             
         vysledek = ""
         for z in vstupni_text:
@@ -210,7 +213,9 @@ def zpracuj_akci():
             slova = vstupni_text.split()
             zpracovana_slova = []
             for slovo in slova:
-                zpracovane_znaky = [OBRACENY_MORSE_SLOVNIK.get(z, z) for z in odstran_diakritiku(slovo)]
+                cisty_text = odstran_diakritiku(slovo)
+                znaky = re.findall(r'CH|[A-Z0-9]', cisty_text)
+                zpracovane_znaky = [OBRACENY_MORSE_SLOVNIK.get(z, z) for z in znaky]
                 zpracovana_slova.append(" ".join(zpracovane_znaky))
             vystupni_pole.insert(tk.END, " / ".join(zpracovana_slova))
         else:
