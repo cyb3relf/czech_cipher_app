@@ -29,7 +29,7 @@ K instalaci potřebujete mít v systému **Git** a **Python 3.x**.
 
 ```bash
 # 1. Klonování repozitáře z GitHubu
-git clone [https://github.com/susjantux/czech_cipher_app.git](https://github.com/susjantux/czech_cipher_app.git)
+git clone https://github.com/susjantux/czech_cipher_app.git
 
 # 2. Přechod do složky projektu
 cd czech_cipher_app
